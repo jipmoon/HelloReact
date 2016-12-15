@@ -11,17 +11,37 @@ var Greeter = React.createClass({
       message: 'YOLO'
     };
   },
+  // Sets its name state to props value, pass the annonymous function
+  getInitialState: function() {
+    return {
+      name: this.props.name
+    };
+  },
+
   onButtonClick: function(e) {
     // prevent the form from submitting and causing a form refresh
     e.preventDefault();
 
-    var name = this.refs.name.value;
+    // Fetch the name itself
+    var nameRef = this.refs.name;
+    var name = nameRef.value;
+    // Empty the placeholder in the form
+    nameRef.value = '';
 
-    alert(name);
+    // Do not update the form if the placeholder is empty
+    if(typeof name == 'string' && name.length > 0) {
+      // When the user submits the form then
+      // set the state and update the name
+      this.setState({
+        name: name
+      });
+    }
   },
   render: function() {
-    var name = this.props.name;
+    // this.props.name to fetch the value
+    var name = this.state.name;
     var message = this.props.message;
+    // Display to the screen
     return (
       <div>
         <h1>Hello {name}!</h1>

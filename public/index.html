@@ -3,9 +3,23 @@
 
 <head>
   <meta charset="UTF-8"/>
+  <!--Babel let users use es6 javascript features in the browser.
+  Babel compiles for us and convert to es5 code, if browser doesn't support es6. It also converts JSX into javascript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  <!--React library itself and react can be used on other platforms.-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
+  <!--React-dom only uses on web.-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
 </head>
 
 <body>
-  <h1>Hello World</h1>
+  <!-- This is the container for react app -->
+  <div id="app"></div>
+  <!-- The script tag has the attribute type of babel.
+Babel will convert whatever features inside of this script.
+eg. es features, JSX and etc -->
+<!-- ReactDom.render is going to start this app.
+Passing Two arguments. 1) Piece of JSX 2) App element-->
+  <script type="text/babel" src="app.jsx"></script>
 </body>
 </html>

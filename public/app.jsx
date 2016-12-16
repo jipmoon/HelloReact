@@ -1,3 +1,25 @@
+var GreeterMessage = React.createClass({
+  render: function() {
+    return (
+      <div>
+        <h1>Some H1</h1>
+        <p>Some paragraph</p>
+      </div>
+    );
+  }
+});
+
+// Displays a simple form
+var GreeterForm = React.createClass({
+  render: function() {
+    return (
+      <form onSubmit={this.onButtonClick}>
+        <input type="text" ref="name"/>
+        <button>Set Name</button>
+      </form>
+    );
+  }
+});
 /* 1. Create a component that mimics the behaviour in h1
    2. Create a variable Greeter then use one function
    3. createClass takes one argument that is an option's object
@@ -47,10 +69,14 @@ var Greeter = React.createClass({
         <h1>Hello {name}!</h1>
         <p>{message + '!!'}</p>
 
+        <GreeterMessage/>
+
       <form onSubmit={this.onButtonClick}>
         <input type="text" ref="name"/>
         <button>Set Name</button>
       </form>
+
+      <GreeterForm/>
       </div>
     );
   }
